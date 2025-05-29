@@ -8,17 +8,23 @@
       margin: 0;
       padding: 0;
       background: white;
-      overflow: hidden;
       font-family: monospace;
+      overflow: hidden;
       height: 100%;
       width: 100%;
     }
 
-    canvas {
+    .ascii-bg {
       position: absolute;
-      top: 0;
-      left: 0;
+      width: 100%;
+      height: 100%;
+      font-size: 10px;
+      color: #ccc;
+      white-space: pre;
+      overflow: hidden;
       z-index: 0;
+      pointer-events: none;
+      line-height: 1.1;
     }
 
     .link, .title {
@@ -32,57 +38,52 @@
       z-index: 1;
     }
 
-    .link:hover {
-      text-decoration: underline;
-    }
-
     .title {
       font-size: 24px;
-      top: 10%;
+      top: 8%;
       left: 50%;
       transform: translateX(-50%);
+    }
+
+    .link:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-  <canvas id="asciiCanvas"></canvas>
+  <!-- ASCII background will be filled in with JS -->
+  <div class="ascii-bg" id="ascii"></div>
 
+  <!-- Title and Links -->
   <a class="title" href="description.html">SITUATED PRACTICES</a>
-  <a class="link" href="image1.html" style="top: 30%; left: 15%;">IMAGE 1</a>
+  <a class="link" href="image1.html" style="top: 25%; left: 20%;">IMAGE 1</a>
   <a class="link" href="image2.html" style="top: 35%; left: 70%;">IMAGE 2</a>
   <a class="link" href="image3.html" style="top: 65%; left: 40%;">IMAGE 3</a>
   <a class="link" href="image4.html" style="top: 80%; left: 60%;">IMAGE 4</a>
 
   <script>
-    const canvas = document.getElementById('asciiCanvas');
-    const ctx = canvas.getContext('2d');
+    const asciiEl = document.getElementById('ascii');
     const chars = "@#%&$=*+!?/<>";
     const fontSize = 10;
 
-    function drawASCII() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+    function fillASCII() {
+      const width = Math.floor(window.innerWidth / (fontSize * 0.6));
+      const height = Math.floor(window.innerHeight / (fontSize * 1.2));
+      let content = '';
 
-      ctx.fillStyle = "#ffffff";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      ctx.font = `${fontSize}px monospace`;
-      ctx.fillStyle = "#ccc";
-
-      const cols = Math.floor(canvas.width / fontSize);
-      const rows = Math.floor(canvas.height / (fontSize * 1.2));
-
-      for (let y = 0; y < rows; y++) {
-        for (let x = 0; x < cols; x++) {
-          const char = chars[Math.floor(Math.random() * chars.length)];
-          ctx.fillText(char, x * fontSize, y * fontSize * 1.2);
+      for (let y = 0; y < height; y++) {
+        for (let x = 0; x < width; x++) {
+          content += chars[Math.floor(Math.random() * chars.length)];
         }
+        content += '\n';
       }
+
+      asciiEl.textContent = content;
     }
 
-    drawASCII();
-    window.addEventListener('resize', drawASCII);
+    fillASCII();
+    window.addEventListener('resize', fillASCII);
   </script>
 
 </body>
