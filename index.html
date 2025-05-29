@@ -1,30 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>luke watson</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      background: white;
+      height: 100%;
+      width: 100%;
       font-family: monospace;
-      overflow: hidden;
-      height: 100%;
-      width: 100%;
-    }
-
-    .ascii-bg {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      font-size: 10px;
-      color: #ccc;
-      white-space: pre;
-      overflow: hidden;
-      z-index: 0;
-      pointer-events: none;
-      line-height: 1.1;
+      background: url('ascii-bg.png') repeat;
+      background-size: auto;
     }
 
     .link, .title {
@@ -35,7 +22,6 @@
       padding: 4px 8px;
       font-size: 18px;
       text-decoration: none;
-      z-index: 1;
     }
 
     .title {
@@ -52,39 +38,11 @@
 </head>
 <body>
 
-  <!-- ASCII background will be filled in with JS -->
-  <div class="ascii-bg" id="ascii"></div>
-
-  <!-- Title and Links -->
   <a class="title" href="description.html">SITUATED PRACTICES</a>
   <a class="link" href="image1.html" style="top: 25%; left: 20%;">IMAGE 1</a>
   <a class="link" href="image2.html" style="top: 35%; left: 70%;">IMAGE 2</a>
   <a class="link" href="image3.html" style="top: 65%; left: 40%;">IMAGE 3</a>
   <a class="link" href="image4.html" style="top: 80%; left: 60%;">IMAGE 4</a>
-
-  <script>
-    const asciiEl = document.getElementById('ascii');
-    const chars = "@#%&$=*+!?/<>";
-    const fontSize = 10;
-
-    function fillASCII() {
-      const width = Math.floor(window.innerWidth / (fontSize * 0.6));
-      const height = Math.floor(window.innerHeight / (fontSize * 1.2));
-      let content = '';
-
-      for (let y = 0; y < height; y++) {
-        for (let x = 0; x < width; x++) {
-          content += chars[Math.floor(Math.random() * chars.length)];
-        }
-        content += '\n';
-      }
-
-      asciiEl.textContent = content;
-    }
-
-    fillASCII();
-    window.addEventListener('resize', fillASCII);
-  </script>
 
 </body>
 </html>
