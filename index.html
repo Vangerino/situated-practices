@@ -10,9 +10,9 @@
       background: white;
       color: black;
       font-family: monospace;
-      overflow: hidden;
       height: 100%;
       width: 100%;
+      overflow: hidden;
     }
 
     .ascii-bg {
@@ -23,50 +23,52 @@
       line-height: 1.2;
       font-size: 10px;
       color: #ccc;
-      pointer-events: none;
       z-index: 0;
+      pointer-events: none;
     }
 
-    .link {
-      position: absolute;
+    body > *:not(.ascii-bg) {
+      position: relative;
+      z-index: 1;
+    }
+
+    body {
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    a {
+      display: block;
+      margin: 20px;
       font-size: 20px;
-      font-weight: bold;
-      color: black;
       text-decoration: none;
-      background: white;
-      padding: 4px 8px;
-      z-index: 2;
+      color: black;
     }
 
-    .link:hover {
+    a:hover {
       text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-  <!-- ASCII background -->
+  <!-- ASCII symbol background -->
   <div class="ascii-bg">
-@#%&$=*+!?/<>-@#%&$=*+!?/<>-@#%&$=*+!?/<>-
-$#@!*+=-&%@!?#+=*%$&#@!?+=--++==@@!!@@##%
-&@@++!!##**--==@#%&$=*+!?/<>-@#%&$=*+!?/<>
-!?/<>-@#%&$=*+!?/<>-@#%&$=*+!?/<>-@#%&$=*
-#@!?+=--++==@@!!@@##%!?/<>-@#%&$=*+!?/<>-@
-+=&%@!?#+=*%$&#@!?+=--++==@@!!@@##%@#%&$=*
-@#%&$=*+!?/<>-@#%&$=*+!?/<>-@#%&$=*+!?/<>-
-!@#%+=&$@!?#+=*%$&#@!?+=--++==@@!!@@##%@#%
-+=--++==@@!!@@##%@#%&$=*+!?/<>-@#%&$=*+!?/
+@#%&$=*+!?/<>@#%&$=*+!?/<>@#%&$=*+!?/<>@#%&$=*+!?/<>@#%&$=*+!?/<>@#%&$=*+!?/<>
+$#@!*+=-&%@!?#+=*%$&#@!?+=--++==@@!!@@##%@#%&$=*+!?/<>@#%&$=*+!?/<>@#%&$=*+!?/
+!?/<>@#%&$=*+!?/<>@#%&$=*+!?/<>@#%&$=*+!?/<>@#%&$=*+!?/<>@#%&$=*+!?/<>@#%&$=*+?
+#@!?+=--++==@@!!@@##%!?/<>@#%&$=*+!?/<>@#%&$=*+!?/<>@#%&$=*+!?/<>@#%&$=*+!?/<>
++=&%@!?#+=*%$&#@!?+=--++==@@!!@@##%@#%&$=*+!?/<>@#%&$=*+!?/<>@#%&$=*+!?/<>@#%&
+@#%&$=*+!?/<>@#%&$=*+!?/<>@#%&$=*+!?/<>@#%&$=*+!?/<>@#%&$=*+!?/<>@#%&$=*+!?/<>
+!@#%+=&$@!?#+=*%$&#@!?+=--++==@@!!@@##%@#%&$=*+!?/<>@#%&$=*+!?/<>@#%&$=*+!?/<>
++=--++==@@!!@@##%@#%&$=*+!?/<>@#%&$=*+!?/<>@#%&$=*+!?/<>@#%&$=*+!?/<>@#%&$=*+?
   </div>
 
-  <!-- Main title (optional) -->
-  <a class="link" href="description.html" style="top: 10%; left: 40%;">situated practice</a>
-
-  <!-- Image links -->
-  <a class="link" href="image1.html" style="top: 30%; left: 20%;">Image 1 – Fragmented Recall</a>
-  <a class="link" href="image2.html" style="top: 50%; left: 60%;">Image 2 – Signal Interference</a>
-  <a class="link" href="image3.html" style="top: 70%; left: 25%;">Image 3 – Lossless No More</a>
-  <a class="link" href="image4.html" style="top: 80%; left: 55%;">Image 4 – Structural Ghost</a>
+  <h1>situated practice</h1>
+  <a href="image1.html">Image 1 – Fragmented Recall</a>
+  <a href="image2.html">Image 2 – Signal Interference</a>
+  <a href="image3.html">Image 3 – Lossless No More</a>
+  <a href="image4.html">Image 4 – Structural Ghost</a>
 
 </body>
 </html>
- 
