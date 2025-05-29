@@ -10,8 +10,8 @@
       height: 100%;
       width: 100%;
       font-family: monospace;
-      background: url('ascii-background.jpg') repeat;
-      background-size: auto;
+      background: url('./ascii-background.jpg') center center no-repeat;
+      background-size: cover;
     }
 
     .link, .title {
@@ -24,25 +24,34 @@
       text-decoration: none;
     }
 
-    .title {
-      font-size: 24px;
-      top: 8%;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
     .link:hover {
       text-decoration: underline;
     }
+
+    .title {
+      top: 8%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 24px;
+    }
+
+    /* Individual link positions */
+    .image1 { top: 25%; left: 20%; }
+    .image2 { top: 35%; left: 70%; }
+    .image3 { top: 65%; left: 40%; }
+    .image4 { top: 80%; left: 60%; }
   </style>
 </head>
 <body>
 
+  <!-- Title -->
   <a class="title" href="description.html">SITUATED PRACTICES</a>
-  <a class="link" href="image1.html" style="top: 25%; left: 20%;">IMAGE 1</a>
-  <a class="link" href="image2.html" style="top: 35%; left: 70%;">IMAGE 2</a>
-  <a class="link" href="image3.html" style="top: 65%; left: 40%;">IMAGE 3</a>
-  <a class="link" href="image4.html" style="top: 80%; left: 60%;">IMAGE 4</a>
+
+  <!-- Image Links -->
+  <a class="link image1" href="image1.html">IMAGE 1</a>
+  <a class="link image2" href="image2.html">IMAGE 2</a>
+  <a class="link image3" href="image3.html">IMAGE 3</a>
+  <a class="link image4" href="image4.html">IMAGE 4</a>
 
 </body>
 </html>
