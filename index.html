@@ -2,84 +2,73 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>situated practice</title>
+  <title>luke watson</title>
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100vw;
-      height: 100vh;
-      font-family: monospace;
-      font-size: 12px;
+    body {
       background: white;
       color: black;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .ascii-container {
-      width: 100%;
-      height: 100%;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(10px, 1fr));
-      grid-auto-rows: 1em;
+      font-family: monospace;
       overflow: hidden;
-      white-space: pre;
+      margin: 0;
+      padding: 0;
     }
 
-    .ascii-char {
-      text-align: center;
+    .container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .symbol {
+      position: absolute;
+      font-size: 16px;
       user-select: none;
     }
 
-    .ascii-char a {
+    .link {
+      position: absolute;
+      font-size: 18px;
       color: black;
       text-decoration: none;
       font-weight: bold;
     }
 
-    .ascii-char a:hover {
+    .link:hover {
       text-decoration: underline;
+    }
+
+    h1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+      z-index: 2;
     }
   </style>
 </head>
 <body>
-  <div class="ascii-container">
-    <!-- This JavaScript fills the grid dynamically with ASCII or links -->
-    <script>
-      const container = document.querySelector('.ascii-container');
-      const totalCells = 3000; // Change this to increase coverage
-      const links = [
-        { text: 'Image 1', href: 'image1.html' },
-        { text: 'Image 2', href: 'image2.html' },
-        { text: 'Image 3', href: 'image3.html' },
-        { text: 'Image 4', href: 'image4.html' }
-      ];
+  <div class="container">
+    <h1>situated practice</h1>
 
-      const linkIndices = new Set();
-      while (linkIndices.size < links.length) {
-        linkIndices.add(Math.floor(Math.random() * totalCells));
-      }
+    <!-- Link placements -->
+    <a class="link" href="image1.html" style="top: 10%; left: 20%;">Image 1</a>
+    <a class="link" href="image2.html" style="top: 25%; left: 75%;">Image 2</a>
+    <a class="link" href="image3.html" style="top: 70%; left: 30%;">Image 3</a>
+    <a class="link" href="image4.html" style="top: 60%; left: 80%;">Image 4</a>
 
-      for (let i = 0; i < totalCells; i++) {
-        const span = document.createElement('div');
-        span.className = 'ascii-char';
-
-        if (linkIndices.has(i)) {
-          const link = links[linkIndices.size - linkIndices.size];
-          linkIndices.delete(i);
-          const a = document.createElement('a');
-          a.href = link.href;
-          a.textContent = link.text;
-          span.appendChild(a);
-        } else {
-          span.textContent = ['@', '#', '$', '%', '&', '*', '=', '-', '+', ':', '.', ';'][Math.floor(Math.random() * 12)];
-        }
-
-        container.appendChild(span);
-      }
-    </script>
+    <!-- Random symbols cloud -->
+    <!-- You can add or copy-paste more of these -->
+    <div class="symbol" style="top: 5%; left: 10%;">@</div>
+    <div class="symbol" style="top: 15%; left: 50%;">#</div>
+    <div class="symbol" style="top: 35%; left: 40%;">%</div>
+    <div class="symbol" style="top: 45%; left: 65%;">&amp;</div>
+    <div class="symbol" style="top: 55%; left: 25%;">$</div>
+    <div class="symbol" style="top: 85%; left: 15%;">*</div>
+    <div class="symbol" style="top: 80%; left: 70%;">=</div>
+    <div class="symbol" style="top: 30%; left: 85%;">?</div>
+    <div class="symbol" style="top: 65%; left: 55%;">+</div>
+    <div class="symbol" style="top: 40%; left: 10%;">!</div>
   </div>
 </body>
 </html>
